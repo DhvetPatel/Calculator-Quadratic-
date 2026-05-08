@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Basic Calculator -->
+<div class="calculator" id="basicCalc">
+    <input id="placeholder" readonly>
+    <div id="keys">
+        <button onclick="ap('7')">7</button>
+        <button onclick="ap('8')">8</button>
+        <button onclick="ap('9')">9</button>
+        <button class="operator" onclick="ap('+')">+</button>
+
+        <button onclick="ap('4')">4</button>
+        <button onclick="ap('5')">5</button>
+        <button onclick="ap('6')">6</button>
+        <button class="operator" onclick="ap('-')">-</button>
+
+        <button onclick="ap('1')">1</button>
+        <button onclick="ap('2')">2</button>
+        <button onclick="ap('3')">3</button>
+        <button class="operator" onclick="ap('*')">×</button>
+
+        <button onclick="ap('0')">0</button>
+        <button onclick="clearVal()">C</button>
+        <button onclick="calculate()">=</button>
+        <button class="operator" onclick="ap('/')">÷</button>
+        <button onclick="ap('.')">.</button>
+        <button id="switch" onclick="switchCalc()">Switch ⇄</button>
+    </div>
+</div>
+
+<!-- Quadratic Calculator -->
+<div class="quadratic" id="quadCalc">
+    <p id="Ans">Roots will appear here</p>
+
+    <label class="label">Enter a:</label>
+    <label class="label">Enter b:</label>
+    <label class="label">Enter c:</label><br><br>
+
+    <input class="value_input" type="number" id="value_a" placeholder="a">
+    <input class="value_input" type="number" id="value_b" placeholder="b">
+    <input class="value_input" type="number" id="value_c" placeholder="c"><br>
+
+    <button id="solve" onclick="quadratic()">Solve</button>
+    <button class="small_btn" onclick="clearQuad()">Clear</button>
+    <button class="small_btn" onclick="switchCalc()">Switch ⇄</button>
+    <button class="small_btn" onclick="openGraph()">Graph 📈</button>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="closeGraph()"></div>
+
+<!-- Draggable Graph Popup -->
+<div class="graph-popup" id="graphPopup">
+    <div class="graph-header" id="graphHeader">
+        <span>Quadratic Graph</span>
+        <button class="close-btn" onclick="closeGraph()">✕</button>
+    </div>
+    <div class="graph-body">
+        <div id="graphDiv"></div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
